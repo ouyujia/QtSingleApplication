@@ -1,0 +1,2 @@
+# QtSingleApplication
+QT程序自重启与单个程序实例冲突
