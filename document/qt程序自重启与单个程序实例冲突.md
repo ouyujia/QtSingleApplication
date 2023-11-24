@@ -24,7 +24,11 @@
 ```c++
 QString program = QApplication::applicationFilePath();
 QStringList arguments = QApplication::arguments();
-arguments.append("restart"); //! 命令行添加重启指令，该指令为自定义指令可为其他字符，如："reboot"
+if (!arguments.contains("restart"))
+{
+    //! 命令行添加重启指令，该指令为自定义指令可为其他字符，如："reboot"
+    arguments.append("restart");
+} 
 QString workingDirectory = QDir::currentPath();
 QProcess::startDetached(program, arguments, workingDirectory);
 QApplication::exit();
